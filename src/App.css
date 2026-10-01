@@ -1,0 +1,375 @@
+:root {
+  --pink: #e85d91;
+  --dark-pink: #a82d60;
+  --light-pink: #fff1f5;
+  --text: #654453;
+  --egg-close-pink: #f8d4e1;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe4ec, #fff8fb);
+  color: var(--text);
+}
+
+.card {
+  width: min(100%, 560px);
+  padding: 48px 36px 28px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid white;
+  border-radius: 32px;
+  box-shadow: 0 20px 60px #c85b8520;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  color: var(--dark-pink);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.2;
+  margin: 20px 0;
+}
+
+.subtitle {
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.gift-icon {
+  font-size: 4.5rem;
+  margin: 20px 0;
+  animation: float 2s ease-in-out infinite;
+}
+.gift {
+  animation: appear 0.5s ease;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 24px;
+  background: var(--pink);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 18px #e85d9140;
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+button:hover {
+  background: var(--dark-pink);
+  transform: translateY(-3px);
+}
+
+.letter {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 24px;
+  background: var(--light-pink);
+  text-align: left;
+  line-height: 1.8;
+  animation: appear 0.5s ease;
+}
+.letter.closing {
+  animation: fadeOut 0.5s ease forwards;
+}
+.letter h2 {
+  color: var(--dark-pink);
+  text-align: center;
+}
+
+.letter-heart {
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.signature {
+  text-align: right;
+  font-family: "Pacifico", cursive;
+  color: var(--dark-pink);
+  font-size: 1.3rem;
+}
+
+.footer {
+  margin-top: 32px;
+  color: #bd829b;
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Easter Eggs - Desktop (Posicionamento flutuante nas laterais)
+   ========================================================================== */
+
+.decor {
+  position: absolute;
+  color: #ef9fbd;
+  font-size: 3.5rem;
+  opacity: 0.7;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  z-index: 2;
+}
+
+.decor:hover {
+  opacity: 1;
+}
+
+.decor-1 {
+  top: 8%;
+  left: 6%;
+  animation: float 3s ease-in-out infinite;
+}
+
+.decor-2 {
+  top: 15%;
+  right: 6%;
+  animation: float 3.5s ease-in-out infinite 0.5s;
+}
+
+.decor-3 {
+  bottom: 8%;
+  right: 8%;
+  animation: float 4s ease-in-out infinite 1s;
+}
+
+/* ==========================================================================
+   Easter Eggs - Overlay / Modal
+   ========================================================================== */
+
+.egg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(101, 68, 83, 0.5);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 100;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.egg-message {
+  position: relative;
+  width: min(100%, 360px);
+  padding: 36px 24px 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid white;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(168, 45, 96, 0.25);
+  animation: scaleUp 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.egg-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
+  background: var(--light-pink);
+  color: var(--dark-pink);
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  z-index: 2;
+  /* Melhora o feedback visual de hover */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  /* Ajustes de posição (se necessário para afastar da borda) */
+  line-height: 1;
+}
+
+.egg-close:hover {
+  background-color: var(--egg-close-pink); /* Efeito suave no hover */
+}
+
+.egg-heart {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--pink);
+  margin-bottom: 12px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.egg-message p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.egg-message small {
+  display: block;
+  color: var(--pink);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.egg-overlay.closing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+.egg-message.closing {
+  animation: scaleDown 0.3s ease forwards;
+}
+
+/* ==========================================================================
+Animações
+========================================================================== */
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-mobile {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================================================================
+   Responsividade para Smartphones (Solução Definitiva)
+   ========================================================================== */
+
+@media (max-width: 600px) {
+  .page {
+    padding: 20px 16px 100px; /* Dá espaço suficiente no fundo para o scroll não tapar o conteúdo */
+  }
+
+  .card {
+    padding: 32px 20px 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .letter {
+    padding: 20px;
+  }
+
+  /* Anula as posições do desktop e cria um container em barra no fundo */
+  .decor {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 20px !important;
+    left: auto !important;
+    right: auto !important;
+
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid white;
+    border-radius: 50%;
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(200, 91, 133, 0.3);
+    z-index: 9999 !important; /* Coloca os ícones na camada mais elevada da página */
+    opacity: 1;
+  }
+
+  /* Distribuição lado a lado no fundo do ecrã */
+  .decor-1 {
+    left: calc(50% - 75px) !important;
+    animation: float-mobile 3s ease-in-out infinite;
+  }
+
+  .decor-2 {
+    left: 50% !important;
+    animation: float-mobile 3.5s ease-in-out infinite 0.5s;
+  }
+
+  .decor-3 {
+    left: calc(50% + 75px) !important;
+    animation: float-mobile 4s ease-in-out infinite 1s;
+  }
+}
